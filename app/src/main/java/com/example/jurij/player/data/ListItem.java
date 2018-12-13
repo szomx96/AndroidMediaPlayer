@@ -1,5 +1,7 @@
 package com.example.jurij.player.data;
 
+import android.net.Uri;
+
 public class ListItem {
 
 
@@ -7,14 +9,14 @@ public class ListItem {
     private String author;
     private String title;
     private int color;
-    private String path;
+    private Uri uri;
 
-    public String getPath() {
-        return path;
+    public Uri getUri() {
+        return uri;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 
     public ListItem(String author, String title) {
@@ -28,12 +30,12 @@ public class ListItem {
         this.title = title;
     }
 
-    public ListItem(Long id, String author, String title, int color, String path) {
+    public ListItem(Long id, String author, String title, int color, Uri uri) {
         this.id = id;
         this.author = author;
         this.title = title;
         this.color = color;
-        this.path = path;
+        this.uri = uri;
     }
 
     public String getAuthor() {

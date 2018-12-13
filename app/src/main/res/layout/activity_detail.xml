@@ -50,12 +50,39 @@
             android:layout_below="@+id/div_center"
             tools:text="To jest tytuł"
     />
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:layout_marginStart="67dp" android:layout_alignParentBottom="true" android:id="@+id/buttonPlay"
-            android:layout_marginBottom="98dp" android:layout_marginTop="86dp" android:layout_below="@+id/txt_title"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="229dp"/>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <Button
+                android:text="@string/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true" android:id="@+id/buttonPlay"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.836"/>
+        <Button
+                android:text="@string/pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/buttonPlay" android:id="@+id/buttonPause"
+                android:layout_toEndOf="@+id/buttonPlay"
+                app:layout_constraintEnd_toStartOf="@+id/buttonStop" app:layout_constraintStart_toEndOf="@+id/buttonPlay"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.507" app:layout_constraintVertical_bias="0.836"/>
+        <Button
+                android:text="@string/stop"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp" android:layout_alignBottom="@+id/buttonPlay"
+                android:layout_alignParentEnd="true" android:id="@+id/buttonStop"
+                android:layout_toEndOf="@+id/buttonPause"
+                android:layout_marginEnd="25dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.836"/>
+    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

@@ -25,23 +25,26 @@ public class DataSource extends AppCompatActivity implements IDataSource {
 
         ArrayList listOfData = new ArrayList<ListItem>();
         ContentResolver contentResolver = context.getContentResolver();
-        Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        Cursor songCursor = contentResolver.query(songUri, null, null, null, null);
+        Uri mediaUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        Cursor songCursor = contentResolver.query(mediaUri, null, null, null, null);
 
         if(songCursor != null && songCursor.moveToFirst())
         {
-        String path = songUri.getPath();
+
         int songId = songCursor.getColumnIndex(MediaStore.Audio.Media._ID);
         int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
         int songAuthor = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
         int picture = songCursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART);
+        String url = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+        Uri songUri = Uri.parse(url);
 
 
         do {
 
-        long currentId = songCursor.getLong(songId);
+        Long currentId = songCursor.getLong(songId);
         String currentTitle = songCursor.getString(songTitle);
         String currentArtist = songCursor.getString(songAuthor);
+
         int currentPicture;
         try {
             currentPicture = songCursor.getInt(picture);
@@ -49,7 +52,11 @@ public class DataSource extends AppCompatActivity implements IDataSource {
             currentPicture = 0;
         }
 
-        listOfData.add(new ListItem(currentId, currentArtist, currentTitle, currentPicture, path));
+        Log.d(mediaUri.toString(), "uri of media");
+        Log.d(songUri.toString(), "song uri?");
+
+
+        listOfData.add(new ListItem(currentId, currentArtist, currentTitle, currentPicture, songUri));
         } while(songCursor.moveToNext());
         }
         return listOfData;

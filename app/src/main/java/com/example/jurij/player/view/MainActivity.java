@@ -6,6 +6,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements IView{
     private static final String EXTRA_AUTHOR = "EXTRA_AUTHOR";
     private static final String EXTRA_TITLE = "EXTRA_TITLE";
     private static final String EXTRA_COLOR = "EXTRA_COLOR";
-    private static final String EXTRA_PATH = "EXTRA_PATH`";
+    private static final String EXTRA_URI = "EXTRA_URI";
 
     private List<ListItem> listOfData;
 
@@ -87,12 +89,14 @@ public class MainActivity extends AppCompatActivity implements IView{
     }
 
     @Override
-    public void startDetailActivity(String author, String title, int color, String path) {
+    public void startDetailActivity(String author, String title, int color, Uri uri) {
         Intent i = new Intent(this, DetailActivity.class);
         i.putExtra(EXTRA_AUTHOR, author);
         i.putExtra(EXTRA_TITLE, title);
         i.putExtra(EXTRA_COLOR, color);
-        i.putExtra(EXTRA_PATH, path);
+        i.putExtra(EXTRA_URI, uri.toString());
+
+        Log.d(uri.toString(), "uri in main activity");
 
         startActivity(i);
     }

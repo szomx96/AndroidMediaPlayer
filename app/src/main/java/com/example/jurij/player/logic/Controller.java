@@ -28,7 +28,7 @@ public class Controller {
                 item.getAuthor(),
                 item.getTitle(),
                 item.getColor(),
-                item.getPath()
+                item.getUri()
         );
     }
 
