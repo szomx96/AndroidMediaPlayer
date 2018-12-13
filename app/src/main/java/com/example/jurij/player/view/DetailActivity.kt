@@ -58,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
             player.pause()
         }
 
-        buttonPlay.setOnClickListener {
+        buttonStop.setOnClickListener {
             player.stop()
         }
     }

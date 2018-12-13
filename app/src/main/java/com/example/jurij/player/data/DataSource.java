@@ -35,11 +35,17 @@ public class DataSource extends AppCompatActivity implements IDataSource {
         int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
         int songAuthor = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
         int picture = songCursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART);
-        String url = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-        Uri songUri = Uri.parse(url);
+        //String url = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+
+
+
 
 
         do {
+
+            int data= songCursor.getColumnIndex(MediaStore.Audio.Media.DATA);
+            String url= songCursor.getString(data);
+            Uri songUri = Uri.parse(url);
 
         Long currentId = songCursor.getLong(songId);
         String currentTitle = songCursor.getString(songTitle);
