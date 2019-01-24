@@ -44,8 +44,6 @@ class DetailActivity : AppCompatActivity() {
             drawableResourceExtra
         )
 
-        Log.d(uriExtra, "uri in detail activity" )
-        //Log.d((Uri.parse(uriExtra).toString()), "parsed uri")
 
         player = MediaPlayer.create(this, Uri.parse(uriExtra))
         player.isLooping = false

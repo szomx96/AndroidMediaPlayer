@@ -58,8 +58,6 @@ public class DataSource extends AppCompatActivity implements IDataSource {
             currentPicture = 0;
         }
 
-        Log.d(mediaUri.toString(), "uri of media");
-        Log.d(songUri.toString(), "song uri?");
 
 
         listOfData.add(new ListItem(currentId, currentArtist, currentTitle, currentPicture, songUri));

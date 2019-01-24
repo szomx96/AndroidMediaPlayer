@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements IView{
         i.putExtra(EXTRA_COLOR, color);
         i.putExtra(EXTRA_URI, uri.toString());
 
-        Log.d(uri.toString(), "uri in main activity");
+
 
         startActivity(i);
     }
